@@ -1,0 +1,18 @@
+# Sourcery configuration file
+# This configuration disables Sourcery to avoid subscription requirements
+
+rules: []
+python_version: "3.8"
+
+# Disable all Sourcery rules to avoid requiring subscription
+github:
+  # Disable GitHub integration
+  sourcery_bot: false
+  
+# Disable all refactoring suggestions
+refactor:
+  skip_docs: true
+  
+# Disable code quality metrics
+metrics:
+  quality_threshold: 100

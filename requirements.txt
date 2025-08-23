@@ -1,0 +1,2 @@
+# No runtime dependencies required for this simple demonstration
+# This file is included for standard Python project structure
