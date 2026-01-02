@@ -1,6 +1,6 @@
 #!/bin/bash
 # WSL Installation Script with Buffer Support
-# Bidah's Creations Systems
+# Jabidah's Creations Systems
 
 # Buffer configuration
 BUFFER_SIZE=4096
@@ -11,13 +11,13 @@ BUFFER_ENABLED=true
 buffer_write() {
     local message="$1"
     if [ "$BUFFER_ENABLED" = true ]; then
-        OUTPUT_BUFFER="${OUTPUT_BUFFER}${message}\n"
+        OUTPUT_BUFFER="${OUTPUT_BUFFER}${message}"$'\n'
         # Flush buffer if it exceeds BUFFER_SIZE
         if [ ${#OUTPUT_BUFFER} -ge $BUFFER_SIZE ]; then
             buffer_flush
         fi
     else
-        echo -e "$message"
+        echo "$message"
     fi
 }
 
@@ -68,7 +68,6 @@ while getopts "b:efh" opt; do
     case $opt in
         b)
             BUFFER_SIZE=$OPTARG
-            buffer_write "Buffer size set to: $BUFFER_SIZE bytes"
             ;;
         e)
             buffer_enable
